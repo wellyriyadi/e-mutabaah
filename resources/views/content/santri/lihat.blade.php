@@ -9,22 +9,40 @@
                 <div class="card-content">
                     <!-- Isi kontennya disini-->
                     <div class="row">
-                        <button type="button" class="btn waves-effect waves-light green darken-1">Tambah Santri</button>
+                        <button type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalSantri">Tambah Santri</button>
                     </div>
                     <div class="row">
                         <div class="col m12">
                             <table class="striped">
                                 <thead>
-                                    <th>Nama Santri</th>
-                                    <th>Alamat</th>
-                                    <th>Ttl</th>
-                                    <th>Tingkat Pendidikan</th>
-                                    <th>Nama Ayah</th>
-                                    <th>Nama Ibu</th>
-                                    <th>No Telp</th>
-                                    <th>Waktu Belajar</th>
-                                    <th>Action</th>
+                                    <tr>
+                                        <th>Nama Santri</th>
+                                        <th>Alamat</th>
+                                        <th>Ttl</th>
+                                        <th>Tingkat Pendidikan</th>
+                                        <th>Nama Ayah</th>
+                                        <th>Nama Ibu</th>
+                                        <th>No Telp</th>
+                                        <th>Waktu Belajar</th>
+                                        <th>Action</th>
+
+                                    </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach($dataSantri as $value)
+                                    <tr>
+                                        <td>{{$value->nama_santri}}</td>
+                                        <td>{{$value->alamat}}</td>
+                                        <td>{{$value->tempat_lahir}} {{$value->tanggal_lahir}}</td>
+                                        <td>{{$value->tingkat_pendidikan}}</td>
+                                        <td>{{$value->nama_ayah}}</td>
+                                        <td>{{$value->nama_ibu}}</td>
+                                        <td>{{$value->nomor_telepon}}</td>
+                                        <td>{{$value->waktu_belajar}}</td>
+                                        <td>Action</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -33,8 +51,8 @@
         </div>
     </div>
 </div>
-<div id="modalMutabaah" class="modal modal-fixed-footer">
-    <form action="" method="post">
+<div id="modalSantri" class="modal modal-fixed-footer">
+    <form action="{{route('simpan-santri')}}" method="post">
         <div class="modal-content">
                 @csrf
                 <div class="row">
@@ -45,8 +63,8 @@
                 </div>  
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Alamat" id="Alamat" type="text" name="Alamat" class="validate" required>
-                        <label for="Alamat" class="active">Alamat</label>
+                        <input placeholder="Alamat" id="alamat" type="text" name="alamat" class="validate" required>
+                        <label for="alamat" class="active">Alamat</label>
                     </div>
                 </div> 
                 <div class="row">
@@ -61,7 +79,7 @@
                 </div> 
                 <div class="row">
                     <div class="input-field col s12">
-                        <select name="tingkat_pendidikat" required>
+                        <select name="tingkat_pendidikan" required>
                             <option value="" disabled selected>Pilih Pendidikan</option>
                             <option value="SD SEDERAJAT">SD SEDERAJAT</option>
                             <option value="SMP SEDERAJAT">SMP SEDERAJAT</option>

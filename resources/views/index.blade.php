@@ -132,6 +132,16 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
         <div class="col s12">
           <div class="container">
+            @if(session()->has('error'))
+            <div class="card-alert card {{session()->get('error')?'red':'green'}}">
+               <div class="card-content white-text">
+                   <p>{{session()->get('message')}}</p>
+               </div>
+               <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">×</span>
+               </button>
+           </div>
+           @endif
     @yield('content')
         </div>
         <div class="content-overlay"></div>
