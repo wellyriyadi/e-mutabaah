@@ -9,7 +9,7 @@
                 <div class="card-content">
                     <!-- Isi kontennya disini-->
                     <div class="row">
-                        <button type="button" class="btn waves-effect waves-light green darken-1">Tambah Mutabaah</button>
+                        <button type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalMutabaah">Tambah Mutabaah</button>
                     </div>
                     <div class="row">
                         <div class="col m12">
@@ -32,5 +32,73 @@
              </div>
         </div>
     </div>
+</div>
+<div id="modalMutabaah" class="modal modal-fixed-footer">
+    <form action="" method="post">
+        <div class="modal-content">
+                @csrf
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="santri_id" required>
+                            <option value="" disabled selected>Pilih Santri</option>
+                        </select>
+                        <label>Nama Santri</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="guru_id" required>
+                            <option value="" disabled selected>Pilih Guru</option>
+                        </select>
+                        <label>Nama Guru</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="mapel_id" required>
+                            <option value="" disabled selected>Pilih Mapel</option>
+                        </select>
+                        <label>Nama Mapel</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Nama Surat" id="nama_surat" type="text" name="nama_surat" class="validate" required>
+                        <label for="nama_surat" class="active">Nama Surat</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Ayat Awal" id="ayat_awal" type="number" name="ayat_awal" class="validate" required>
+                        <label for="ayat_awal" class="active">Ayat Awal</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Ayat Akhir" id="ayat_akhir" type="number" name="ayat_akhir" class="validate" required>
+                        <label for="ayat_akhir" class="active">Ayat Akhir</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" name="catatan" data-length="120" required></textarea>
+                        <label for="textarea1">Catatan</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="status" required>
+                            <option value="" disabled selected>Pilih Status</option>
+                            <option value="Lulus">Lulus</option>
+                            <option value="Mengulang">Mengulang</option>
+                        </select>
+                        <label>Status</label>
+                    </div>
+                </div> 
+            
+        </div>
+        <div class="modal-footer">
+            <button  type="submit" class="btn waves-effect waves-light green darken-1">Simpan</button>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Tutup</a>
+        </div>
+    </form>
 </div>
 @endsection

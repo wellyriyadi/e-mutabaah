@@ -20,7 +20,7 @@ use App\Http\Controllers\GuruController;
 |
 */
 
-Route::get('/',[AdminController::class,'dashboard']);
+Route::get('/dashboard',[AdminController::class,'dashboard']);
 Route::get('/mutabaah/lihat',[MutabaahController::class,'lihat']);
 Route::get('/nilai/lihat',[NilaiController::class,'lihat']);
 Route::get('/santri/lihat',[SantriController::class,'lihat']);
