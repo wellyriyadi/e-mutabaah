@@ -41,6 +41,9 @@
                     <div class="input-field col s12">
                         <select name="santri_id" required>
                             <option value="" disabled selected>Pilih Santri</option>
+                            @foreach ($dataSantri as $item)
+                                <option value="{{$item->id}}">{{$item->nama_santri}}</option>
+                            @endforeach
                         </select>
                         <label>Nama Santri</label>
                     </div>
@@ -49,6 +52,9 @@
                     <div class="input-field col s12">
                         <select name="guru_id" required>
                             <option value="" disabled selected>Pilih Guru</option>
+                            @foreach ($dataGuru as $item)
+                                <option value="{{$item->id}}">{{$item->nama_guru}}</option>
+                            @endforeach
                         </select>
                         <label>Nama Guru</label>
                     </div>
@@ -57,6 +63,9 @@
                     <div class="input-field col s12">
                         <select name="mapel_id" required>
                             <option value="" disabled selected>Pilih Mapel</option>
+                            @foreach ($dataMapel as $item)
+                                <option value="{{$item->id}}">{{$item->mapel}} - {{$item->jenis}}</option>
+                            @endforeach
                         </select>
                         <label>Nama Mapel</label>
                     </div>
@@ -68,13 +77,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
                         <input placeholder="Ayat Awal" id="ayat_awal" type="number" name="ayat_awal" class="validate" required>
-                        <label for="ayat_awal" class="active">Ayat Awal</label>
+                        <label for="ayat_awal" id="label_awal" class="active">Ayat Awal</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
                         <input placeholder="Ayat Akhir" id="ayat_akhir" type="number" name="ayat_akhir" class="validate" required>
-                        <label for="ayat_akhir" class="active">Ayat Akhir</label>
+                        <label for="ayat_akhir" id="label_akhir" class="active">Ayat Akhir</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input placeholder="Halaman" id="halaman" type="number" name="halaman" class="validate" required>
+                        <label for="halaman" class="active">Halaman</label>
                     </div>
                 </div>
                 <div class="row">
@@ -101,4 +114,9 @@
         </div>
     </form>
 </div>
+<script>
+    $('select[name="mapel_id"]').change(function(){
+
+    })
+</script>
 @endsection

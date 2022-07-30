@@ -8,6 +8,7 @@ use App\Http\Controllers\SantriController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\InformasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/nilai/lihat',[NilaiController::class,'lihat']);
 Route::group(['prefix'=>'santri'],function(){
     Route::get('/lihat',[SantriController::class,'lihat']);
     Route::post('/simpan',[SantriController::class,'simpanSantri'])->name('simpan-santri');
+    Route::get('/edit/{id}',[SantriController::class,'editSantri'])->name('edit-santri');
 });
 
 Route::group(['prefix'=>'guru'],function(){
@@ -34,6 +36,14 @@ Route::group(['prefix'=>'guru'],function(){
     Route::post('/simpan',[GuruController::class,'simpanGuru'])->name('simpan-guru');
 });
 
-Route::get('/kelas/lihat',[KelasController::class,'lihat']);
-Route::get('/mapel/lihat',[MapelController::class,'lihat']);
-Route::get('/guru/lihat',[GuruController::class,'lihat']);
+Route::group(['prefix'=>'kelas'],function(){
+    Route::get('/lihat',[KelasController::class,'lihat']);
+    Route::post('/simpan',[KelasController::class,'simpanKelas'])->name('simpan-kelas');
+});
+
+Route::group(['prefix'=>'mapel'],function(){
+    Route::get('/lihat',[MapelController::class,'lihat']);
+    Route::post('/simpan',[MapelController::class,'simpanMapel'])->name('simpan-mapel');
+});
+
+    Route::get('/informasi',[InformasiController::class,'lihat']);

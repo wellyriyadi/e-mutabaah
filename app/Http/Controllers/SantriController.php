@@ -24,4 +24,8 @@ class SantriController extends Controller
             "message"=>($ins?'Tambah Berhasil':'Tambah Gagal')
         ]);
     }
+    public function editSantri($id)
+    {
+        return response()->json(Santri::where(['id'=>$id])->first());
+    }
 }

@@ -17,7 +17,7 @@
         </li>
         <li class="bold"><a href="/mapel/lihat"><i class="material-icons">dvr</i><span class="menu-title" data-i18n="Templates">Mapel</span></a>
         </li>
-        <li class="bold"><a href="JavaScript:void(0)"><i class="material-icons">notifications</i><span class="menu-title" data-i18n="Templates">Informasi</span></a>
+        <li class="bold"><a href="/informasi"><i class="material-icons">notifications</i><span class="menu-title" data-i18n="Templates">Informasi</span></a>
         </li>
         <li class="bold"><a href="JavaScript:void(0)"><i class="material-icons">dvr</i><span class="menu-title" data-i18n="Templates">Login</span></a>
         </li>

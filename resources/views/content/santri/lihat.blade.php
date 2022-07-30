@@ -17,29 +17,30 @@
                                 <thead>
                                     <tr>
                                         <th>Nama Santri</th>
+                                        <th>TTL</th>
                                         <th>Alamat</th>
-                                        <th>Ttl</th>
                                         <th>Tingkat Pendidikan</th>
                                         <th>Nama Ayah</th>
                                         <th>Nama Ibu</th>
                                         <th>No Telp</th>
                                         <th>Waktu Belajar</th>
                                         <th>Action</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($dataSantri as $value)
                                     <tr>
                                         <td>{{$value->nama_santri}}</td>
-                                        <td>{{$value->alamat}}</td>
                                         <td>{{$value->tempat_lahir}} {{$value->tanggal_lahir}}</td>
+                                        <td>{{$value->alamat}}</td>
                                         <td>{{$value->tingkat_pendidikan}}</td>
                                         <td>{{$value->nama_ayah}}</td>
                                         <td>{{$value->nama_ibu}}</td>
                                         <td>{{$value->nomor_telepon}}</td>
                                         <td>{{$value->waktu_belajar}}</td>
-                                        <td>Action</td>
+                                        <td>
+                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-santri',[$value->id])}}"><i class="material-icons">create</i></a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -60,12 +61,6 @@
                         <input placeholder="Nama Santri" id="nama_santri" type="text" name="nama_santri" class="validate" required>
                         <label for="nama_santri" class="active">Nama Santri</label>
                     </div>
-                </div>  
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input placeholder="Alamat" id="alamat" type="text" name="alamat" class="validate" required>
-                        <label for="alamat" class="active">Alamat</label>
-                    </div>
                 </div> 
                 <div class="row">
                     <div class="input-field col s6">
@@ -75,6 +70,12 @@
                     <div class="input-field col s6">
                         <input placeholder="Tanggal Lahir" id="tanggal_lahir" type="date" name="tanggal_lahir" class="validate" required>
                         <label for="tanggal_lahir" class="active">Tanggal Lahir</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Alamat" id="alamat" type="text" name="alamat" class="validate" required>
+                        <label for="alamat" class="active">Alamat</label>
                     </div>
                 </div> 
                 <div class="row">
@@ -121,4 +122,22 @@
         </div>
     </form>
 </div>
+<script>
+    function edit(e)
+    {
+        $.get($(e).data('src'),function(d){
+            console.log(d)
+            $('input[name="nama_santri"]').val(d.nama_santri)
+            $('input[name="tempat_lahir"]').val(d.tempat_lahir)
+            $('input[name="tanggal_lahir"]').val(d.tanggal_lahir)
+            $('input[name="alamat"]').val(d.alamat)
+            $('select[name="tingkat_pendidikan"]').val(d.tingkat_pendidikan)
+            $('input[name="nama_ayah"]').val(d.nama_ayah)
+            $('input[name="nama_ibu"]').val(d.nama_ibu)
+            $('input[name="nomor_telepon"]').val(d.nomor_telepon)
+            $('select[name="waktu_belajar"]').val(d.waktu_belajar)
+            $('#modalSantri').modal('open');
+        })
+    }
+</script>
 @endsection
