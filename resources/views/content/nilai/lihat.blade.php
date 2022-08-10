@@ -15,18 +15,11 @@
                         <div class="col m12">
                             <table class="striped">
                                 <thead>
-                                    <th>NAMA SANTRI</th>
-                                    <th>TAHFIZH</th>
-                                    <th>NILAI</th>
-                                    <th>PREDIKAT</th>
-                                    <th>TAHSIN</th>
-                                    <th>NILAI</th>
-                                    <th>PREDIKAT</th>
-                                    <th>ADAB</th>
-                                    <th>DOA</th>
-                                    <th>HADITS</th>
-                                    <th>SIRAH</th>
-                                    <th>ACTION</th>
+                                    <th>Nama</th>
+                                    <th>Guru</th>
+                                    <th>Mapel</th>
+                                    <th>Nilai</th>
+                                    <th>Action</th>
                                 </thead>
                             </table>
                         </div>
@@ -49,93 +42,27 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s4">
-                        <input placeholder="Tahfizh" id="tahfizh" type="text" name="tahfizh" class="validate" required>
-                        <label for="tahfizh" class="active">Tahfizh</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input placeholder="Nilai" id="nilai_tahfizh" type="number" name="nilai_tahfizh" class="validate" required>
-                        <label for="nilai_tahfizh" class="active">Nilai</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <select name="predikat" required>
-                            <option value="" disabled selected>Pilih Predikat</option>
-                            <option value="Mumtaz">Mumtaz</option>
-                            <option value="Jayyid Jiddan">Jayyid Jiddan</option>
-                            <option value="Jayyid">Jayyid</option>
-                            <option value="Maqbul">Maqbul</option>
+                    <div class="input-field col s12">
+                        <select name="guru_id" required>
+                            <option value="" disabled selected>Pilih Guru</option>
                         </select>
-                        <label>Predikat</label>
+                        <label>Nama Guru</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="mapel_id" required>
+                            <option value="" disabled selected>Pilih Mapel</option>
+                        </select>
+                        <label>Nama Mapel</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Nilai" id="nilai" type="number" name="nilai" class="validate" required>
+                        <label for="nilai" class="active">Nilai</label>
                     </div>
                 </div> 
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input placeholder="Tahsin" id="tahsin" type="text" name="tahsin" class="validate" required>
-                        <label for="tahsin" class="active">Tahsin</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input placeholder="Nilai" id="nilai_tahsin" type="number" name="nilai_tahsin" class="validate" required>
-                        <label for="nilai_tahsin" class="active">Nilai</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <select name="predikat" required>
-                            <option value="" disabled selected>Pilih Predikat</option>
-                            <option value="Mumtaz">Mumtaz</option>
-                            <option value="Jayyid Jiddan">Jayyid Jiddan</option>
-                            <option value="Jayyid">Jayyid</option>
-                            <option value="Maqbul">Maqbul</option>
-                        </select>
-                        <label>Predikat</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <select name="adab" required>
-                            <option value="" disabled selected>Pilih Grade</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                        </select>
-                        <label>Adab</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <select name="doa" required>
-                            <option value="" disabled selected>Pilih Grade</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                        </select>
-                        <label>Do'a</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <select name="hadits" required>
-                            <option value="" disabled selected>Pilih Grade</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                        </select>
-                        <label>Hadits</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <select name="sirah" required>
-                            <option value="" disabled selected>Pilih Grade</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                        </select>
-                        <label>Sirah</label>
-                    </div>
-                </div>
         </div>
         <div class="modal-footer">
             <button  type="submit" class="btn waves-effect waves-light green darken-1">Simpan</button>

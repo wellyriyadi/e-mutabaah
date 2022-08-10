@@ -16,8 +16,7 @@
                             <table class="striped">
                                 <thead>
                                     <th>Nama Kelas</th>
-                                    <th>Jenis</th>
-                                    <th>Waktu</th>
+                                    <th>Waktu Belajar</th>
                                     <th>Action</th>
                                 </thead>
                             </table>
@@ -39,19 +38,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <select name="jenis_kelas" required>
-                            <option value="" disabled selected>Pilih Jenis Kelas</option>
-                            <option value="Pagi">Pagi</option>
-                            <option value="Siang">Siang</option>
-                        </select>
-                        <label>Waktu Belajar</label>
-                    </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <select name="waktu_belajar" required>
                             <option value="" disabled selected>Pilih Waktu Belajar</option>
-                            <option value="Pagi">Pukul 07.30 - 10.30 WIB</option>
-                            <option value="Siang">Pukul 14.00 - 17.00 WIB</option>
+                            <option value="Pagi">Pagi Pukul 07.30 - 10.30 WIB</option>
+                            <option value="Siang">Siang Pukul 14.00 - 17.00 WIB</option>
                         </select>
                         <label>Waktu Belajar</label>
                     </div>
