@@ -24,4 +24,8 @@ class GuruController extends Controller
             "message"=>($ins?'Tambah Berhasil':'Tambah Gagal')
         ]);
     }
+    public function editGuru($id)
+    {
+        return response()->json(Guru::where(['id'=>$id])->first());
+    }
 }

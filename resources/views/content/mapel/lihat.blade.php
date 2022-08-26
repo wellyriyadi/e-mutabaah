@@ -24,7 +24,9 @@
                                     <tr>
                                         <td>{{$value->mapel}}</td>
                                         <td>{{$value->jenis}}</td>
-                                        <td>Action</td>
+                                        <td>
+                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-mapel',[$value->id])}}"><i class="material-icons">create</i></a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -65,4 +67,15 @@
         </div>
     </form>
 </div>
+<script>
+    function edit(e)
+    {
+        $.get($(e).data('src'),function(d){
+            console.log(d)
+            $('input[name="mapel"]').val(d.mapel)
+            $('select[name="jenis"]').val(d.jenis)
+            $('#modalMapel').modal('open');
+        })
+    }
+</script>
 @endsection

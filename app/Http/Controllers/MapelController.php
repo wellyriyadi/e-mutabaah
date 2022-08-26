@@ -25,4 +25,8 @@ class MapelController extends Controller
             "message"=>($ins?'Tambah Berhasil':'Tambah Gagal')
         ]);
     }
+    public function editMapel($id)
+    {
+        return response()->json(Mapel::where(['id'=>$id])->first());
+    }
 }

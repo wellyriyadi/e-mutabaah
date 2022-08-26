@@ -32,7 +32,9 @@
                                         <td>{{$value->nomor_telepon}}</td>
                                         <td>{{$value->tanggal_bergabung}}</td>
                                         <td>{{$value->tanggal_berhenti}}</td>
-                                        <td>Action</td>
+                                        <td>
+                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-guru',[$value->id])}}"><i class="material-icons">create</i></a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -93,4 +95,20 @@
         </div>
     </form>
 </div>
+<script>
+    function edit(e)
+    {
+        $.get($(e).data('src'),function(d){
+            console.log(d)
+            $('input[name="nama_guru"]').val(d.nama_guru)
+            $('input[name="tempat_lahir"]').val(d.tempat_lahir)
+            $('input[name="tanggal_lahir"]').val(d.tanggal_lahir)
+            $('input[name="alamat"]').val(d.alamat)
+            $('input[name="nomor_telepon"]').val(d.nomor_telepon)
+            $('input[name="tanggal_bergabung"]').val(d.tanggal_bergabung)
+            $('input[name="tanggal_berhenti"]').val(d.tanggal_berhenti)
+            $('#modalGuru').modal('open');
+        })
+    }
+</script>
 @endsection

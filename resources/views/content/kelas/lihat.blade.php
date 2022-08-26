@@ -19,6 +19,17 @@
                                     <th>Waktu Belajar</th>
                                     <th>Action</th>
                                 </thead>
+                                <tbody>
+                                    @foreach($dataKelas as $value)
+                                    <tr>
+                                        <td>{{$value->nama_kelas}}</td>
+                                        <td>{{$value->waktu_belajar}}</td>
+                                        <td>
+                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-kelas',[$value->id])}}"><i class="material-icons">create</i></a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -41,8 +52,8 @@
                     <div class="input-field col s12">
                         <select name="waktu_belajar" required>
                             <option value="" disabled selected>Pilih Waktu Belajar</option>
-                            <option value="Pagi">Pagi Pukul 07.30 - 10.30 WIB</option>
-                            <option value="Siang">Siang Pukul 14.00 - 17.00 WIB</option>
+                            <option value="Pagi Pukul 07.30 - 10.30 WIB">Pagi Pukul 07.30 - 10.30 WIB</option>
+                            <option value="Siang Pukul 14.00 - 17.00 WIB">Siang Pukul 14.00 - 17.00 WIB</option>
                         </select>
                         <label>Waktu Belajar</label>
                     </div>
@@ -54,4 +65,15 @@
             </div>
     </form>        
 </div>
+<script>
+    function edit(e)
+    {
+        $.get($(e).data('src'),function(d){
+            console.log(d)
+            $('input[name="nama_kelas"]').val(d.nama_kelas)
+            $('select[name="waktu_belajar"]').val(d.waktu_belajar)
+            $('#modalKelas').modal('open');
+        })
+    }
+</script>
 @endsection
