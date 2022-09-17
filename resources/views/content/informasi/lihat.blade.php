@@ -5,14 +5,13 @@
     <!-- Current balance & total transactions cards-->
     <div class="row vertical-modern-dashboard">
         <div class="col-xl-12">
-            {{-- <div class="card animate fadeLeft"> --}}
-                {{-- <div class="card-content"> --}}
+            <div class="card animate fadeLeft">
+                <div class="card-content">
                     <!-- Isi kontennya disini-->
-                    {{-- <div class="row">
-                        <button type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalInformasi">Tambah Informasi</button>
-                    </div> --}}
-                    
-                    {{-- <div class="row">
+                    <div class="row">
+                        <button onclick="add()" type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalInformasi">Tambah Informasi</button>
+                    </div> 
+                    <div class="row">
                         <div class="col m12">
                             <table class="striped">
                                 <thead>
@@ -29,57 +28,18 @@
                                         <td>{{$value->content}}</td>
                                         <td>{{$value->created_at}}</td>
                                         <td>{{$value->expired_at}}</td>
-                                        <td>Action</td>
+                                        <td>
+                                            <a href="#" class="btn-floating waves-effect waves-light amber darken-1" onclick="edit(this)" data-src="{{route('edit-informasi',[$value->id])}}"><i class="material-icons">create</i></a>
+                                            <a href="#" class="btn-floating waves-effect waves-light red darken-1" onclick="deletedata(this)" data-src="{{route('delete-informasi',[$value->id])}}"><i class="material-icons">delete_forever</i></a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                    </div> --}}
-
-                    <!-- Page Length Options -->
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card">
-                                <div class="card-content">
-                                    <div class="row">
-                                        <button onclick="add()" type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalInformasi">Tambah Informasi</button>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s12">
-                                            <table id="page-length-option" class="display">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Judul</th>
-                                                        <th>Content</th>
-                                                        <th>Created-at</th>
-                                                        <th>Expired-at</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($dataInformasi as $value)
-                                                    <tr>
-                                                        <td>{{$value->judul}}</td>
-                                                        <td>{{$value->content}}</td>
-                                                        <td>{{$value->created_at}}</td>
-                                                        <td>{{$value->expired_at}}</td>
-                                                        <td>
-                                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-informasi',[$value->id])}}"><i class="material-icons">create</i></a>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
-                {{-- </div> --}}
-             {{-- </div> --}}
+                </div>
+             </div>
         </div>
     </div>
 </div>
@@ -117,7 +77,7 @@
     {
         $.get($(e).data('src'),function(d){
             console.log(d)
-             $('#formInformasi').attr('action','{{route('update-informasi')}}')
+            $('#formInformasi').attr('action','{{route('update-informasi')}}')
             $('<input id="id">').attr({
                         type: 'hidden',
                         name: 'id',
@@ -134,6 +94,11 @@
         $('#id').remove()
          $('#formInformasi').attr('action','{{route('simpan-informasi')}}')
          $('#formInformasi').trigger("reset")
+    }
+    function deletedata(e){
+        if(confirm("Apakah Anda Ingin Menghapus Data Ini?")){
+            window.location.href = $(e).data('src')
+        }
     }
 </script>
 @endsection

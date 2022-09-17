@@ -45,4 +45,13 @@ class InformasiController extends Controller
         }
         return redirect()->back(['error'=>true,'Id Tidak Ada']);
     }
+    public function deleteInformasi($id)
+    {
+        $informasi = Informasi::findOrFail($id);
+        $informasi->delete();
+        return redirect()->back()->with([
+            "error"=> !$informasi,
+            "message"=>($informasi?'Data Telah Dihapus':'Data Gagal Dihapus')
+        ]);
+    }
 }

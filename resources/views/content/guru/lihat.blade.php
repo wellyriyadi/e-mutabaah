@@ -9,7 +9,7 @@
                 <div class="card-content">
                     <!-- Isi kontennya disini-->
                     <div class="row">
-                        <button type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalGuru">Tambah Guru</button>
+                        <button onclick="add()" type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalGuru">Tambah Guru</button>
                     </div>
                     <div class="row">
                         <div class="col m12">
@@ -33,7 +33,8 @@
                                         <td>{{$value->tanggal_bergabung}}</td>
                                         <td>{{$value->tanggal_berhenti}}</td>
                                         <td>
-                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-guru',[$value->id])}}"><i class="material-icons">create</i></a>
+                                            <a href="#" class="btn-floating waves-effect waves-light amber darken-1" onclick="edit(this)" data-src="{{route('edit-guru',[$value->id])}}"><i class="material-icons">create</i></a>
+                                            <a href="#" class="btn-floating waves-effect waves-light red darken-1" onclick="deletedata(this)" data-src="{{route('delete-guru',[$value->id])}}"><i class="material-icons">delete_forever</i></a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -47,7 +48,7 @@
     </div>
 </div>
 <div id="modalGuru" class="modal modal-fixed-footer">
-    <form action="{{route('simpan-guru')}}" method="post">
+    <form action="{{route('simpan-guru')}}" method="post" id="formGuru">
         <div class="modal-content">
                 @csrf
                 <div class="row">
@@ -100,6 +101,12 @@
     {
         $.get($(e).data('src'),function(d){
             console.log(d)
+            $('#formGuru').attr('action','{{route('update-guru')}}')
+            $('<input id="id">').attr({
+                        type: 'hidden',
+                        name: 'id',
+                        value:d.id
+                    }).appendTo('#formGuru');
             $('input[name="nama_guru"]').val(d.nama_guru)
             $('input[name="tempat_lahir"]').val(d.tempat_lahir)
             $('input[name="tanggal_lahir"]').val(d.tanggal_lahir)
@@ -109,6 +116,17 @@
             $('input[name="tanggal_berhenti"]').val(d.tanggal_berhenti)
             $('#modalGuru').modal('open');
         })
+    }
+    function add()
+    {
+        $('#id').remove()
+        $('#formGuru').attr('action','{{route('simpan-guru')}}')
+        $('#formGuru').trigger("reset")
+    }
+    function deletedata(e){
+        if(confirm("Apakah Anda Ingin Menghapus Data Ini?")){
+            window.location.href = $(e).data('src')
+        }
     }
 </script>
 @endsection

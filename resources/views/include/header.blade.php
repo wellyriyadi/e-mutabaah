@@ -2,10 +2,9 @@
       <div class="navbar navbar-fixed"> 
         <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-indigo-purple no-shadow">
           <div class="nav-wrapper">
-            <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-              <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Pencarian" data-search="template-list">
-              <ul class="search-list collection display-none"></ul>
-            </div>            
+            <ul class="navbar-list right">
+              <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light toggle-fullscreen" style="margin-right: 10px" href="javascript:void(0);"><i class="material-icons">settings_overscan</i></a></li>
+            </ul>
           </div>
           <nav class="display-none search-sm">
             <div class="nav-wrapper">
@@ -20,4 +19,5 @@
           </nav>
         </nav>
       </div>
+      {{-- gradient-45deg-indigo-purple --}}
     </header>

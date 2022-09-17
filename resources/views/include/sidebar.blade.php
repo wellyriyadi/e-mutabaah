@@ -19,7 +19,7 @@
         </li>
         <li class="bold"><a href="/informasi/lihat"><i class="material-icons">notifications</i><span class="menu-title" data-i18n="Templates">Informasi</span></a>
         </li>
-        <li class="bold"><a href="/logout"><i class="material-icons">arrow_forward</i><span class="menu-title" data-i18n="Templates">Logout</span></a>
+        <li class="bold"><a href="/"><i class="material-icons">arrow_forward</i><span class="menu-title" data-i18n="Templates">Logout</span></a>
         </li>
 
       </ul>

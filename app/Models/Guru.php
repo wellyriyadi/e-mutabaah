@@ -12,4 +12,9 @@ class Guru extends Model
     public $fillable=[
         'nama_guru','tempat_lahir','tanggal_lahir','alamat','nomor_telepon','tanggal_bergabung','tanggal_berhenti'
     ];
+
+    public function dataKelas()
+    {
+        return $this->hasOne(GuruKelas::class,'guru_id','id');
+    }
 }

@@ -9,7 +9,7 @@
                 <div class="card-content">
                     <!-- Isi kontennya disini-->
                     <div class="row">
-                        <button type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalMapel">Tambah Mapel</button>
+                        <button onclick="add()" type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalMapel">Tambah Mapel</button>
                     </div>
                     <div class="row">
                         <div class="col m12">
@@ -25,7 +25,8 @@
                                         <td>{{$value->mapel}}</td>
                                         <td>{{$value->jenis}}</td>
                                         <td>
-                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-mapel',[$value->id])}}"><i class="material-icons">create</i></a>
+                                            <a href="#" class="btn-floating waves-effect waves-light amber darken-1" onclick="edit(this)" data-src="{{route('edit-mapel',[$value->id])}}"><i class="material-icons">create</i></a>
+                                            <a href="#" class="btn-floating waves-effect waves-light red darken-1" onclick="deletedata(this)" data-src="{{route('delete-mapel',[$value->id])}}"><i class="material-icons">delete_forever</i></a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -39,7 +40,7 @@
     </div>
 </div>
 <div id="modalMapel" class="modal modal-fixed-footer">
-    <form action="{{route('simpan-mapel')}}" method="post">
+    <form action="{{route('simpan-mapel')}}" method="post" id="formMapel">
         <div class="modal-content">
                 @csrf
                 <div class="row">
@@ -72,10 +73,27 @@
     {
         $.get($(e).data('src'),function(d){
             console.log(d)
+            $('#formMapel').attr('action','{{route('update-mapel')}}')
+            $('<input id="id">').attr({
+                        type: 'hidden',
+                        name: 'id',
+                        value:d.id
+                    }).appendTo('#formMapel');
             $('input[name="mapel"]').val(d.mapel)
             $('select[name="jenis"]').val(d.jenis)
             $('#modalMapel').modal('open');
         })
+    }
+    function add()
+    {
+        $('#id').remove()
+        $('#formMapel').attr('action','{{route('simpan-mapel')}}')
+        $('#formMapel').trigger("reset")
+    }
+    function deletedata(e){
+        if(confirm("Apakah Anda Ingin Menghapus Data Ini?")){
+            window.location.href = $(e).data('src')
+        }
     }
 </script>
 @endsection

@@ -9,7 +9,7 @@
                 <div class="card-content">
                     <!-- Isi kontennya disini-->
                     <div class="row">
-                        <button type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalKelas">Tambah Kelas</button>
+                        <button onclick="add()" type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalKelas">Tambah Kelas</button>
                     </div>
                     <div class="row">
                         <div class="col m12">
@@ -25,7 +25,9 @@
                                         <td>{{$value->nama_kelas}}</td>
                                         <td>{{$value->waktu_belajar}}</td>
                                         <td>
-                                            <a href="#" onclick="edit(this)" data-src="{{route('edit-kelas',[$value->id])}}"><i class="material-icons">create</i></a>
+                                            <a href="#" class="btn-floating waves-effect waves-light amber darken-1" onclick="edit(this)" data-src="{{route('edit-kelas',[$value->id])}}"><i class="material-icons">create</i></a>
+                                            <a href="#" class="btn-floating waves-effect waves-light red darken-1" onclick="deletedata(this)" data-src="{{route('delete-kelas',[$value->id])}}"><i class="material-icons">delete_forever</i></a>
+                                            <a href="{{route('detail-kelas',[$value->id])}}" class="btn-floating waves-effect waves-light purple lightrn-1"  data-src=""><i class="material-icons">open_in_new</i></a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -39,7 +41,7 @@
     </div>
 </div>
 <div id="modalKelas" class="modal modal-fixed-footer">
-    <form action="{{route('simpan-kelas')}}" method="post">
+    <form action="{{route('simpan-kelas')}}" method="post" id="formKelas">
         <div class="modal-content">
                 @csrf
                 <div class="row">
@@ -70,10 +72,27 @@
     {
         $.get($(e).data('src'),function(d){
             console.log(d)
+            $('#formKelas').attr('action','{{route('update-kelas')}}')
+            $('<input id="id">').attr({
+                        type: 'hidden',
+                        name: 'id',
+                        value:d.id
+                    }).appendTo('#formKelas');
             $('input[name="nama_kelas"]').val(d.nama_kelas)
             $('select[name="waktu_belajar"]').val(d.waktu_belajar)
             $('#modalKelas').modal('open');
         })
+    }
+    function add()
+    {
+        $('#id').remove()
+         $('#formKelas').attr('action','{{route('simpan-kelas')}}')
+         $('#formKelas').trigger("reset")
+    }
+    function deletedata(e){
+        if(confirm("Apakah Anda Ingin Menghapus Data Ini?")){
+            window.location.href = $(e).data('src')
+        }
     }
 </script>
 @endsection
