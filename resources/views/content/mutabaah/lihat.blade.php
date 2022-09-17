@@ -8,6 +8,7 @@
             <div class="card animate fadeLeft">
                 <div class="card-content">
                     <!-- Isi kontennya disini-->
+                    <h5>Mutaba'ah</h5>
                     <div class="row">
                         <div class="col m12">
                             <table class="striped">
@@ -22,7 +23,7 @@
                                         <td>{{$value->nama_kelas}}</td>
                                         <td>{{$value->waktu_belajar}}</td>
                                         <td>
-                                            <a href="{{route('detail-kelas',[$value->id])}}" class="btn-floating waves-effect waves-light purple lightrn-1"  data-src=""><i class="material-icons">open_in_new</i></a>
+                                            <a href="{{route('lihat-mutabaah',[$value->id])}}" class="btn-floating waves-effect waves-light purple lightrn-1"  data-src=""><i class="material-icons">open_in_new</i></a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -34,7 +34,12 @@ Route::get('/',[LandingpageController::class,'index']);
 
 Route::group(['middleware'=>'admin'],function(){
     Route::get('/dashboard',[AdminController::class,'dashboard']);
-    Route::get('/mutabaah/lihat',[MutabaahController::class,'lihat']);
+
+    Route::group(['prefix'=>'mutabaah'],function(){
+        Route::get('/lihat',[MutabaahController::class,'lihatKelas']);
+        Route::get('/detail/{id}',[MutabaahController::class,'lihatMutabaah'])->name('lihat-mutabaah'); 
+    });
+    
     Route::get('/nilai/lihat',[NilaiController::class,'lihat']);
 
     Route::group(['prefix'=>'santri'],function(){
