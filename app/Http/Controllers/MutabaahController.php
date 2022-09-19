@@ -7,6 +7,7 @@ use App\Models\Santri;
 use App\Models\Mutabaah;
 use App\Models\Kelas;
 use App\Models\Guru;
+use App\Models\GuruKelas;
 
 class MutabaahController extends Controller
 {
@@ -20,11 +21,15 @@ class MutabaahController extends Controller
     public function lihatMutabaah($id)
     {
         $dataMutabaah = Mutabaah::all();
+        $dataKelas = Kelas::where(['id'=>$id])->first();
         $dataSantri = Santri::with('data_kelas')->whereHas('data_kelas',function($q) use ($id){
             $q->where('kelas_id',$id);
         })->get();
+        $dataGuru = Guru::with('dataKelas')->whereHas('dataKelas',function($q) use ($id){
+            $q->where('guru_id',$id);
+        })->get();
 
-        return view('content.mutabaah.detail',compact('dataMutabaah','dataSantri'));
+        return view('content.mutabaah.detail',compact('dataMutabaah','dataSantri','dataKelas','dataGuru'));
     }
 
 }

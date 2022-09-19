@@ -13,8 +13,8 @@
                         @csrf
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Nama Guru Kelas" id="" type="text" name="" class="validate" disabled value="">
-                                <label for="" class="active">Nama Guru Kelas</label>
+                                <input placeholder="Nama Guru Kelas" id="nama_guru" type="text" name="nama_guru" class="validate" disabled value="{{$dataGuru->guru_id}}">
+                                <label for="nama_guru" class="active">Nama Guru Kelas</label>
                             </div>
                             <div class="input-field col s6">
                                 <input placeholder="Nama Guru Pendamping" id="" type="text" name="" class="validate" disabled value="">

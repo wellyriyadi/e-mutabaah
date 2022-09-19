@@ -12,4 +12,9 @@ class Kelas extends Model
     public $fillable=[
         'nama_kelas','waktu_belajar','tahun_ajaran_id'
     ];
+
+    public function data_Guru()
+    {
+        return $this->hasOne(GuruKelas::class,'guru_id','id');
+    }
 }
