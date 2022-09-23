@@ -2,6 +2,7 @@
     margin-bottom: 20px;
 }
 
+
 .tim-white-buttons {
     background-color: #777777;
 }
@@ -195,24 +196,30 @@
     overflow: hidden;
     border-radius: 50%;
     /* border: 1px solid #333333; */
-    width: 70px;
+    width: 65px;
     float: left;
 }
 
+.lead-rqm {
+    font-size: 1rem;
+    font-weight: 250;
+    color: white;
+    margin-top: 12px;;
+  }
+
 .logo-container .brand{
-    font-size: 20px;
-    color: #b81717;
+    font-size: 16px;
+    color: #fff;
     line-height: 20px;
     float: left;
     margin-left: 10px;
     margin-top: 15px;
     width: 200px;
     height: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.logo-container{
+/* .logo-container{
     margin-top: 10px;
-}
+} */
 .logo-container .logo img{
     width: 100%;
 }

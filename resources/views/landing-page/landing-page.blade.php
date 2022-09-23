@@ -9,6 +9,10 @@
 	  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> --}}
     <link href="{{asset('assets')}}/css/bootstrap.css" rel="stylesheet" />
     <link href="{{asset('assets')}}/css/ct-paper.css" rel="stylesheet"/>
     <link href="{{asset('assets')}}/css/demo.css" rel="stylesheet" />
@@ -38,12 +42,8 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigation-example-2">
       <ul class="nav navbar-nav navbar-right">
-
           <li>
-            <a href="/informasi" class="btn btn-danger btn-simple">Informasi</a>
-          </li>
-          <li>
-            <a href="/login" target="_blank" class="btn btn-primary btn-fill">Login</a>
+            <a href="/login" target="_blank" class="btn btn-primary">Login</a>
           </li>
        </ul>
     </div><!-- /.navbar-collapse -->
@@ -76,8 +76,28 @@
   </div>
 </div> --}}
 
+<!-- BEGIN: Card-->
+<div class="container">
+  <div class="row">
+    <div style="padding: 2rem">
+      <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END: Card-->
 
-<<!-- BEGIN: Footer-->
+<!-- BEGIN: Footer-->
 <footer class="page-footer footer footer-static footer-dark gradient-45deg-indigo-purple gradient-shadow navbar-border navbar-shadow">
   <div class="footer-copyright">
     <div class="container">

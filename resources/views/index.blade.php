@@ -29,6 +29,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/animate-css/animate.css">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/chartist-js/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/chartist-js/chartist-plugin-tooltip.css">
+    <link href="{{asset('assets')}}/css/demo.css" rel="stylesheet" />
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/flag-icon/css/flag-icon.min.css">
@@ -135,7 +136,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Page Main-->
     <div id="main">
       <div class="row">
-        <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+        <div class="content-wrapper-before" style="background-color: #2c3e50"></div>
         <div class="col s12">
           <div class="container">
             @if(session()->has('error'))
@@ -157,7 +158,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END: Page Main-->
 
     <!-- BEGIN: Footer-->
-    <footer class="page-footer footer footer-static footer-dark gradient-45deg-indigo-purple gradient-shadow navbar-border navbar-shadow">
+    <footer class="page-footer footer footer-static footer-dark gradient-shadow navbar-border navbar-shadow" style="background-color: #2c3e50">
       <div class="footer-copyright">
         <div class="container">
          <span class="right hide-on-small-only">&copy;2022, made with <i class="fa fa-heart heart"></i> by Rumah Qur'an Creative Team</span></div>

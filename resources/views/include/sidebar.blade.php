@@ -1,6 +1,15 @@
 <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
-      <div class="brand-sidebar">
-        <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img class="hide-on-med-and-down" src="{{asset('app-assets')}}/images/logo/logo-rq2.png" alt="materialize logo"/><img class="show-on-medium-and-down hide-on-med-and-up" src="{{asset('app-assets')}}/images/logo/logo-rq2.png" alt="materialize logo"/></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
+      <div class="brand-sidebar" style="background-color: #2c3e50;">
+        <div class="logo-container">
+          <div class="logo">
+              <img src="{{asset('app-assets')}}/images/logo/logo-white.png">
+          </div>
+        </div>
+          <div class="text-logo lead-rqm">
+            Rumah Qur'an <br> Al-Mubarok
+          </div>
+        
+        <h1 class="logo-wrapper"><a class=""></a><a class="navbar-toggler" href="#"><i class="material-icons" style="color: white">radio_button_checked</i></a></h1>
       </div>
       <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         <li class="bold"><a href="JavaScript:void(0)"><i class="material-icons">home</i><span class="menu-title" data-i18n="Templates">Home</span></a>
