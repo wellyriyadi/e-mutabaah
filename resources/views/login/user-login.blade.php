@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/horizontal-menu-template/materialize.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/horizontal-menu-template/style.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/layouts/style-horizontal.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/login.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/css/pages/login.css">
     <!-- END: Page Level CSS-->
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/custom/custom.css">

@@ -6280,7 +6280,7 @@ small
     }
 }
 
-@media only screen and (min-width: 993px)
+/* @media only screen and (min-width: 993px)
 {
     #toast-container
     {
@@ -6289,7 +6289,7 @@ small
 
         max-width: 86%;
     }
-}
+} */
 
 .toast
 {

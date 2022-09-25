@@ -37,7 +37,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#album">Album</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#profil">Profil</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#informasi">Informasi</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a href="/login" target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded">Login</a></li>
@@ -62,18 +62,18 @@
                 <p class="masthead-subheading font-weight-light mb-0">Membangun Generasi Qur’ani yang Berilmu dan Beradab</p>
             </div>
         </header>
-        <!-- Album Section-->
-        <section class="page-section portfolio" id="album">
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Album</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Album Grid Items-->
+                <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
@@ -126,7 +126,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/portfolio/kbm2.jpg" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -394,7 +394,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tahsin & Tahfizh</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -402,9 +402,9 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/kbm2.jpg" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4"></p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
