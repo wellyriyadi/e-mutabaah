@@ -10,7 +10,7 @@ class Santri extends Model
     use HasFactory;
     protected $table='santri';
     public $fillable=[
-        'nama_santri','tempat_lahir','tanggal_lahir','alamat','tingkat_pendidikan','nama_ayah','nama_ibu','nomor_telepon','waktu_belajar'
+        'nama_santri','jenis_kelamin','tempat_lahir','tanggal_lahir','alamat','tingkat_pendidikan','nama_ayah','nomor_telepon_ayah','nama_ibu','nomor_telepon_ibu','waktu_belajar'
     ];
 
     public function data_kelas()

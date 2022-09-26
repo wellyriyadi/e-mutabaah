@@ -16,13 +16,15 @@ class CreateSantriTable extends Migration
         Schema::create('santri', function (Blueprint $table) {
             $table->id();
             $table->string('nama_santri');
+            $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->text('alamat');
             $table->string('tingkat_pendidikan');
             $table->string('nama_ayah');
+            $table->string('nomor_telepon_ayah');
             $table->string('nama_ibu');
-            $table->string('nomor_telepon');
+            $table->string('nomor_telepon_ibu');
             $table->string('waktu_belajar');
             $table->timestamps();
         });

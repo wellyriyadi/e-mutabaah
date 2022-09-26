@@ -22,18 +22,19 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="author" content="ThemeSelect">
     <title>E-Tahfizh</title>
     <link rel="apple-touch-icon" href="{{asset('app-assets')}}/images/favicon/apple-touch-icon-152x152.png">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('app-assets')}}/images/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('app-assets')}}/images/favicon/logo-white1.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- BEGIN: VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/animate-css/animate.css">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/chartist-js/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/chartist-js/chartist-plugin-tooltip.css">
-    <link href="{{asset('assets')}}/css/demo.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/css/demo.css" rel="stylesheet"/>
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/flag-icon/css/flag-icon.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/data-tables/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/data-tables/js/jquery.dataTables.min.js">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/vendors/data-tables/css/select.dataTables.min.css">
     <!-- END: VENDOR CSS-->
@@ -46,6 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/css/custom/custom.css">
     <!-- END: Custom CSS-->
+    
   </head>
   <!-- END: Head-->
   <body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu preload-transitions 2-columns   " data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">
@@ -185,5 +187,5 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{asset('app-assets')}}/js/scripts/dashboard-modern.js"></script>
     <script src="{{asset('app-assets')}}/js/scripts/intro.js"></script>
     <!-- END PAGE LEVEL JS-->
-  </body>
+    </body>
 </html>

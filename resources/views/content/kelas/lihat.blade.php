@@ -24,7 +24,7 @@
                                     @foreach($dataKelas as $value)
                                     <tr>
                                         <td>{{$value->nama_kelas}}</td>
-                                        <td>{{$value->dataTahunAjaran->tahun_ajaran}}</td>
+                                        <td>{{$value->dataTahunAjaran->tahun_ajaran??''}}</td>
                                         <td>{{$value->waktu_belajar}}</td>
                                         <td>
                                             <a href="#" class="btn-floating waves-effect waves-light amber darken-1" onclick="edit(this)" data-src="{{route('edit-kelas',[$value->id])}}"><i class="material-icons">create</i></a>
