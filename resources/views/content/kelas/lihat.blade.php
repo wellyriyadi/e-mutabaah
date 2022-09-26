@@ -16,6 +16,7 @@
                             <table class="striped">
                                 <thead>
                                     <th>Nama Kelas</th>
+                                    <th>TahunAjaran</th>
                                     <th>Waktu Belajar</th>
                                     <th>Action</th>
                                 </thead>
@@ -23,6 +24,7 @@
                                     @foreach($dataKelas as $value)
                                     <tr>
                                         <td>{{$value->nama_kelas}}</td>
+                                        <td>{{$value->dataTahunAjaran->tahun_ajaran}}</td>
                                         <td>{{$value->waktu_belajar}}</td>
                                         <td>
                                             <a href="#" class="btn-floating waves-effect waves-light amber darken-1" onclick="edit(this)" data-src="{{route('edit-kelas',[$value->id])}}"><i class="material-icons">create</i></a>
@@ -58,6 +60,17 @@
                             <option value="Siang Pukul 14.00 - 17.00 WIB">Siang Pukul 14.00 - 17.00 WIB</option>
                         </select>
                         <label>Waktu Belajar</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select name="tahun_ajaran_id" required>
+                            <option value="" disabled selected>Tahun Ajaran</option>
+                            @foreach ($tahunAjaran as $item)
+                                <option value="{{$item->id}}">{{$item->tahun_ajaran}}</option>
+                            @endforeach
+                        </select>
+                        <label>Tahun Ajaran</label>
                     </div>
                 </div>
             </div>

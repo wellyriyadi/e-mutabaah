@@ -85,8 +85,18 @@
                         <label for="tanggal_bergabung" class="active">Tanggal Bergabung</label>
                     </div>
                     <div class="input-field col s6">
-                        <input placeholder="Tanggal Berhenti" id="tanggal_berhenti" type="date" name="tanggal_berhenti" required>
+                        <input placeholder="Tanggal Berhenti" id="tanggal_berhenti" type="date" name="tanggal_berhenti">
                         <label for="tanggal_berhenti" class="active">Tanggal Berhenti</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Email" id="email" type="email" name="email" class="validate" required>
+                        <label for="email" class="active">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Password" id="password" type="password" name="password" required>
+                        <label for="password" class="active">Password</label>
                     </div>
                 </div>
         </div>
@@ -114,6 +124,8 @@
             $('input[name="nomor_telepon"]').val(d.nomor_telepon)
             $('input[name="tanggal_bergabung"]').val(d.tanggal_bergabung)
             $('input[name="tanggal_berhenti"]').val(d.tanggal_berhenti)
+            $('input[name="email"]').val(d.data_user.email)
+            $('input[name="password"]').attr('required',false)
             $('#modalGuru').modal('open');
         })
     }
@@ -121,6 +133,7 @@
     {
         $('#id').remove()
         $('#formGuru').attr('action','{{route('simpan-guru')}}')
+        $('input[name="password"]').attr('required',true)
         $('#formGuru').trigger("reset")
     }
     function deletedata(e){

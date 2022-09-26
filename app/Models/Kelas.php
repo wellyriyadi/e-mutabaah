@@ -17,4 +17,8 @@ class Kelas extends Model
     {
         return $this->hasOne(GuruKelas::class,'guru_id','id');
     }
+    public function dataTahunAjaran()
+    {
+        return $this->hasOne(TahunAjaran::class,'id','tahun_ajaran_id');
+    }
 }

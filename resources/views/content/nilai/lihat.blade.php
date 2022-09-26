@@ -9,7 +9,7 @@
                 <div class="card-content">
                     <!-- Isi kontennya disini-->
                     <div class="row">
-                        <button type="button" class="btn waves-effect waves-light green darken-1 modal-trigger" href="#modalNilai">Tambah Nilai</button>
+                        <a class="btn waves-effect waves-light green darken-1 modal-trigger" href="{{route('tambah-nilai')}}">Tambah Nilai</a>
                     </div>
                     <div class="row">
                         <div class="col m12">

@@ -17,4 +17,8 @@ class Guru extends Model
     {
         return $this->hasOne(GuruKelas::class,'guru_id','id');
     }
+    public function dataUser()
+    {
+        return $this->hasOne(User::class,'guru_id','id');
+    }
 }

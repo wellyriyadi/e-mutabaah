@@ -11,6 +11,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\TahunAjaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +37,17 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/dashboard',[AdminController::class,'dashboard']);
 
     Route::group(['prefix'=>'mutabaah'],function(){
-        Route::get('/lihat',[MutabaahController::class,'lihatKelas']);
+        Route::get('/lihat',[MutabaahController::class,'index']);
+        Route::get('/tambah',[MutabaahController::class,'tambah'])->name('tambah-mutabaah');
         Route::get('/detail/{id}',[MutabaahController::class,'lihatMutabaah'])->name('lihat-mutabaah'); 
+        Route::get('/nilai/santri/{kelas_id}/{santri_id}',[MutabaahController::class,'nilaiMutabaah'])->name('nilai-mutabaah'); 
+        Route::post('/simpan',[MutabaahController::class,'simpanMutabaah'])->name('simpan-mutabaah');
+        Route::get('/delete/{id}',[MutabaahController::class,'deleteMutabaah'])->name('delete-mutabaah');
     });
-    
-    Route::get('/nilai/lihat',[NilaiController::class,'lihat']);
+    Route::group(['prefix'=>'santri'],function(){
+        Route::get('/lihat',[NilaiController::class,'lihat']);
+        Route::get('/tambah',[NilaiController::class,'tambah'])->name('tambah-nilai');
+    });
 
     Route::group(['prefix'=>'santri'],function(){
         Route::get('/lihat',[SantriController::class,'lihat']);
@@ -56,6 +63,14 @@ Route::group(['middleware'=>'admin'],function(){
         Route::post('/update',[GuruController::class,'updateGuru'])->name('update-guru');
         Route::get('/edit/{id}',[GuruController::class,'editGuru'])->name('edit-guru');
         Route::get('/delete/{id}',[GuruController::class,'deleteGuru'])->name('delete-guru');
+    });
+
+    Route::group(['prefix'=>'tahunajaran'],function(){
+        Route::get('/lihat',[TahunAjaranController::class,'lihat']);
+        Route::post('/simpan',[TahunAjaranController::class,'simpanTahunAjaran'])->name('simpan-tahunajaran');
+        Route::post('/update',[TahunAjaranController::class,'updateTahunAjaran'])->name('update-tahunajaran');
+        Route::get('/edit/{id}',[TahunAjaranController::class,'editTahunAjaran'])->name('edit-tahunajaran');
+        Route::get('/delete/{id}',[TahunAjaranController::class,'deleteTahunAjaran'])->name('delete-tahunajaran');
     });
 
     Route::group(['prefix'=>'kelas'],function(){

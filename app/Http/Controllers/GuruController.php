@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Guru;
+use Hash;
+use App\Models\User;
 
 class GuruController extends Controller
 {
@@ -21,6 +23,16 @@ class GuruController extends Controller
             return in_array($key,$this->guru->fillable)!==false;
         },ARRAY_FILTER_USE_KEY);
         $ins = Guru::create($params);
+        if($ins){
+            User::create([
+                'guru_id'=>$ins->id,
+                'name'=>$params['nama_guru'],
+                'email'=>request('email'),
+                'email_verified_at'=>null,
+                'password'=>Hash::make(request('password')),
+                'remember_token'=>null,
+            ]);
+        }
         return redirect()->back()->with([
             "error"=> !$ins,
             "message"=>($ins?'Tambah Berhasil':'Tambah Gagal')
@@ -30,7 +42,7 @@ class GuruController extends Controller
 
     public function editGuru($id)
     {
-        return response()->json(Guru::where(['id'=>$id])->first());
+        return response()->json(Guru::with('dataUser')->where(['id'=>$id])->first());
     }
 
 
@@ -43,6 +55,18 @@ class GuruController extends Controller
             },ARRAY_FILTER_USE_KEY);
         //    dd($params);
             $upd = Guru::where('id',request('id'))->update($params);
+            if($upd){
+                $updParams = [
+                    'name'=>$params['nama_guru'],
+                    'email'=>request('email'),
+                    'email_verified_at'=>null,
+                    'remember_token'=>null,
+                ];
+                if(request('password')!=''){
+                    $updParams['password']=Hash::make(request('password'));
+                }
+                User::where('guru_id',request('id'))->update($updParams);
+            }
             return redirect()->back()->with([
                 "error"=> !$upd,
                 "message"=>($upd?'Update Berhasil':'Update Gagal')
@@ -56,6 +80,7 @@ class GuruController extends Controller
     {
         $guru = Guru::findOrFail($id);
         $guru->delete();
+        User::where('guru_id',$id)->delete();
         return redirect()->back()->with([
             "error"=> !$guru,
             "message"=>($guru?'Data Telah Dihapus':'Data Gagal Dihapus')

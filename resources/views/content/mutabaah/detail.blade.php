@@ -13,12 +13,23 @@
                         @csrf
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Nama Guru Kelas" id="" type="text" name="" class="validate" disabled value="">
-                                <label for="" class="active">Nama Guru Kelas</label>
+                                <input placeholder="Nama Kelas" id="nama_kelas" type="text" name="nama_kelas" class="validate" disabled value="{{$dataKelas->nama_kelas}}">
+                                <label for="nama_kelas" class="active">Nama Kelas</label>
                             </div>
                             <div class="input-field col s6">
-                                <input placeholder="Nama Guru Pendamping" id="" type="text" name="" class="validate" disabled value="">
-                                <label for="" class="active">Nama Guru Pendamping</label>
+                                <input placeholder="Waktu Belajar" id="waktu_belajar" type="text" name="waktu_belajar" class="validate" disabled value="{{$dataKelas->waktu_belajar}}">
+                                <label for="waktu_belajar" class="active">Waktu Belajar</label>
+                                <label>Waktu Belajar</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label>Guru Kelas</label>
+                                    <ol style="margin-top:5vh;">
+                                        @foreach($dataGuru as $d)
+                                        <li>{{$d->nama_guru}}</li>
+                                        @endforeach
+                                    </ol>
                             </div>
                         </div>
                     </div>
@@ -33,6 +44,7 @@
                                             <th>Tingkat Pendidikan</th>
                                             <th>Nama Ayah</th>
                                             <th>Waktu Belajar</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </thead>
                                         <tbody>
@@ -43,8 +55,9 @@
                                                 <td>{{$value->tingkat_pendidikan}}</td>
                                                 <td>{{$value->nama_ayah}}</td>
                                                 <td>{{$value->waktu_belajar}}</td>
-                                                <td>
-                                                    <a href="#" class="btn-floating waves-effect waves-light red darken-1" onclick="deletedata(this)" data-src="{{route('delete-santri-kelas',[$value->id])}}"><i class="material-icons">delete_forever</i></a>                                     
+                                                <td><span class="badge badge pill {{($value->data_mutabaah->count()>0?'green':'')}}" style="color:black !important;">{{($value->data_mutabaah->count()>0?'Sudah Dinilai':'Belum Dinilai')}}</span> </td>
+                                                <td>  
+                                                    <a href="{{route('nilai-mutabaah',[$dataKelas->id,$value->id])}}" class="btn-floating waves-effect waves-light purple lightrn-1"  data-src=""><i class="material-icons">open_in_new</i></a>                               
                                                 </td>
                                             </tr>
                                             @endforeach

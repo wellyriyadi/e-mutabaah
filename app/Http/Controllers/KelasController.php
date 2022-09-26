@@ -8,6 +8,7 @@ use App\Models\Santri;
 use App\Models\Guru;
 use App\Models\KelasDetail;
 use App\Models\GuruKelas;
+use App\Models\TahunAjaran;
 use DB;
 
 class KelasController extends Controller
@@ -15,7 +16,8 @@ class KelasController extends Controller
     public function lihat()
     {
         $dataKelas = Kelas::all();
-        return view('content.kelas.lihat',compact('dataKelas'));
+        $tahunAjaran = TahunAjaran::all();
+        return view('content.kelas.lihat',compact('dataKelas','tahunAjaran'));
     }
 
     public function simpanKelas()
