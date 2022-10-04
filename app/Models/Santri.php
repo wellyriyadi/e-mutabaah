@@ -26,4 +26,8 @@ class Santri extends Model
     {
         return $this->hasMany(Mutabaah::class,'santri_id','id');
     }
+    public function data_nilai()
+    {
+        return $this->hasMany(Nilai::class,'santri_id','id');
+    }
 }

@@ -44,6 +44,16 @@ Route::group(['middleware'=>'admin'],function(){
         Route::post('/simpan',[MutabaahController::class,'simpanMutabaah'])->name('simpan-mutabaah');
         Route::get('/delete/{id}',[MutabaahController::class,'deleteMutabaah'])->name('delete-mutabaah');
     });
+
+    Route::group(['prefix'=>'nilai'],function(){
+        Route::get('/lihat',[NilaiController::class,'lihat']);
+        Route::get('/tambah',[NilaiController::class,'tambah'])->name('tambah-nilai');
+        Route::get('/detail/{id}',[NilaiController::class,'lihatNilai'])->name('lihat-nilai'); 
+        Route::get('/nilai/santri/{kelas_id}/{santri_id}',[NilaiController::class,'nilai'])->name('nilai-nilai'); 
+        Route::post('/simpan',[NilaiController::class,'simpanNilai'])->name('simpan-nilai');
+        Route::get('/delete/{id}',[NilaiController::class,'deleteNilai'])->name('delete-nilai');
+    });
+
     Route::group(['prefix'=>'santri'],function(){
         Route::get('/lihat',[NilaiController::class,'lihat']);
         Route::get('/tambah',[NilaiController::class,'tambah'])->name('tambah-nilai');
