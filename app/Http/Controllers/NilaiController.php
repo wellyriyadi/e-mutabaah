@@ -11,6 +11,7 @@ use App\Models\Santri;
 use App\Models\MasterNilai;
 use DB;
 use App\Models\Guru;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class NilaiController extends Controller
 {
@@ -133,5 +134,44 @@ class NilaiController extends Controller
             "error"=> false,
             "message"=>'Kalkulasi Selesai'
         ]);
+    }
+    public function detailSummaryNilai($id)
+    {
+        $dataNilai = MasterNIlai::with(['data_guru','data_santri'])->findOrFail($id);
+        $dataSuratTahfizh = Nilai::with('data_surat')->where(['santri_id'=>$dataNilai->santri_id??'','kelas_id'=>$dataNilai->kelas_id??'','semester_id'=>$dataNilai->semester_id??'','nilai_type'=>'tahfizh'])->get();
+        $dataSuratTahsin = Nilai::with('data_surat')->where(['santri_id'=>$dataNilai->santri_id??'','kelas_id'=>$dataNilai->kelas_id??'','semester_id'=>$dataNilai->semester_id??'','nilai_type'=>'tahsin'])->get();
+        $suratTahfizh = [];
+        $suratTahsin = [];
+        foreach($dataSuratTahfizh as $value){
+            array_push($suratTahfizh,$value->data_surat->nomor_surat.' - '.$value->data_surat->nama_surat);
+        }
+        foreach($dataSuratTahsin as $value){
+            array_push($suratTahsin,$value->data_surat->nomor_surat.' - '.$value->data_surat->nama_surat);
+        }
+        $dataNilai['surat_tahfizh']=$suratTahfizh[0].' s.d '.$suratTahfizh[count($suratTahfizh)-1];
+        $dataNilai['surat_tahsin']=$suratTahsin[0].' s.d '.$suratTahsin[count($suratTahsin)-1];
+        return response()->json($dataNilai);
+    }
+    public function updateMasterNilai()
+    {
+        if(request()->has('id')){
+            $this->masterNilai = new MasterNilai();
+            $params = array_filter(request()->all(),function($key){
+                return in_array($key,$this->masterNilai->fillable)!==false;
+            },ARRAY_FILTER_USE_KEY);
+        //    dd($params);
+            $upd = MasterNilai::where('id',request('id'))->update($params);
+            return redirect()->back()->with([
+                "error"=> !$upd,
+                "message"=>($upd?'Update Berhasil':'Update Gagal')
+            ]);
+        }
+        return redirect()->back(['error'=>true,'Id Tidak Ada']);
+    }
+    public function cetakNilai($id)
+    {
+        $data = MasterNilai::findOrFail($id);
+        $pdf = Pdf::loadView('content.summarynilai.print', compact('data'));
+        return $pdf->stream();
     }
 }

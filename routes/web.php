@@ -58,8 +58,11 @@ Route::group(['middleware'=>'admin'],function(){
     Route::group(['prefix'=>'summary-nilai'],function(){
         Route::get('/lihat',[NilaiController::class,'summaryNilai']);
         Route::get('/kalkulasi',[NilaiController::class,'calculateNilai'])->name('kalkulasi-summary-nilai');
-        Route::get('/print',[NilaiController::class,'cetakNilai'])->name('cetak-summary-nilai');
+        Route::get('/print/{id}',[NilaiController::class,'cetakNilai'])->name('cetak-summary-nilai');
+        Route::get('/detail/{id}',[NilaiController::class,'detailSummaryNilai'])->name('detail-summary-nilai');
+        Route::get('/print',[NilaiController::class,'cetakNilai'])->name('cetak-all-summary-nilai');
         Route::get('/tambah',[NilaiController::class,'calculateNilai'])->name('tambah-summary-nilai');
+        Route::post('/update',[NilaiController::class,'updateMasterNilai'])->name('update-summary-nilai');
     });
 
     Route::group(['prefix'=>'santri'],function(){
