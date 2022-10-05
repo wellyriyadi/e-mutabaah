@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Nilai extends Model
+class MasterNilai extends Model
 {
     use HasFactory;
-    protected $table = 'nilai';
+    protected $table = 'master_nilai';
     public $fillable = [
-        'guru_id','santri_id','kelas_id','semester_id','makhraj','mad','ghunnah','kelancaran','surat_id','nilai_type','nilai_akhir'
+        'santri_id','guru_id','tanggal_pengambilan_nilai','kelas_id','semester_id','nilai_iman','nilai_doa','nilai_hadist','nilai_sirah','keterangan1','surat_tahsin','nilai_tahsin','surat_tahfizh','nilai_tahfizh','keterangan2'
     ];
     public function data_guru()
     {

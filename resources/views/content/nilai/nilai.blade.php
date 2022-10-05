@@ -103,8 +103,8 @@
                                 </div>
                                 <div class="col m3">
                                     <div class="input-field col s12">
-                                        <input placeholder="Nilai Akhir" id="nilaiAkhir" type="text" name="nilai_akhir" class="validate"
-                                            disabled value="90">
+                                        <input placeholder="Nilai Akhir" id="nilaiAkhir" type="text" name="nilai_akhir[]" class="validate"
+                                            readonly value="90">
                                         <label for="nilaiAkhir" class="active">Nilai Akhir</label>
                                     </div>
                                 </div>
@@ -112,13 +112,14 @@
 
                         </div>
                         <!-- Isi kontennya disini-->
-                        <h5>Nilai</h5>
+                        <h5>Nilai {{$nilaiType}}</h5>
                         <div class="row">
                             <div class="col m12">
                                 <form action="{{ route('simpan-nilai') }}" method="post" id="formNilai">
                                     <input type="hidden" name="santri_id" value="{{ $dataSantri->id }}">
                                     <input type="hidden" name="guru_id" value="{{ auth()->user()->id }}">
                                     <input type="hidden" name="kelas_id" value="{{ $dataKelas->id }}">
+                                    <input type="hidden" name="nilai_type" value="{{$nilaiType}}">
                                     @csrf
                                     <input type="hidden" name="semester_id" value="{{ $dataKelas->tahun_ajaran_id }}">
 
@@ -150,16 +151,16 @@
         {
             valBefore = parseInt($(e).parent().find('input').val())
             if(valBefore!=0) $(e).parent().find('input').val(valBefore-1)
-            nilaiAkhir = parseInt($(e).parent().parent().parent().parent().find('input[name="nilai_akhir"]').val())
+            nilaiAkhir = parseInt($(e).parent().parent().parent().parent().find('input[name="nilai_akhir[]"]').val())
             if(valBefore!=0) $(e).parent().find('input').val(valBefore-1)
-            if(nilaiAkhir!=90) $(e).parent().parent().parent().parent().find('input[name="nilai_akhir"]').val(nilaiAkhir+1)
+            if(nilaiAkhir!=90) $(e).parent().parent().parent().parent().find('input[name="nilai_akhir[]"]').val(nilaiAkhir+1)
         }
         function addVal(e)
         {
             valBefore = parseInt($(e).parent().find('input').val())
-            nilaiAkhir = parseInt($(e).parent().parent().parent().parent().find('input[name="nilai_akhir"]').val())
+            nilaiAkhir = parseInt($(e).parent().parent().parent().parent().find('input[name="nilai_akhir[]"]').val())
             $(e).parent().find('input').val(valBefore+1)
-            if(nilaiAkhir!=0) $(e).parent().parent().parent().parent().find('input[name="nilai_akhir"]').val(nilaiAkhir-1)
+            if(nilaiAkhir!=0) $(e).parent().parent().parent().parent().find('input[name="nilai_akhir[]"]').val(nilaiAkhir-1)
         }
     </script>
 @endsection

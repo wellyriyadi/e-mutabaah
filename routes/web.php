@@ -49,14 +49,22 @@ Route::group(['middleware'=>'admin'],function(){
         Route::get('/lihat',[NilaiController::class,'lihat']);
         Route::get('/tambah',[NilaiController::class,'tambah'])->name('tambah-nilai');
         Route::get('/detail/{id}',[NilaiController::class,'lihatNilai'])->name('lihat-nilai'); 
-        Route::get('/nilai/santri/{kelas_id}/{santri_id}',[NilaiController::class,'nilai'])->name('nilai-nilai'); 
+        Route::get('/nilai/tahfizh/santri/{kelas_id}/{santri_id}',[NilaiController::class,'nilaiTahfizh'])->name('nilai-tahfizh'); 
+        Route::get('/nilai/tahsin/santri/{kelas_id}/{santri_id}',[NilaiController::class,'nilaiTahsin'])->name('nilai-tahsin'); 
         Route::post('/simpan',[NilaiController::class,'simpanNilai'])->name('simpan-nilai');
         Route::get('/delete/{id}',[NilaiController::class,'deleteNilai'])->name('delete-nilai');
     });
 
+    Route::group(['prefix'=>'summary-nilai'],function(){
+        Route::get('/lihat',[NilaiController::class,'summaryNilai']);
+        Route::get('/kalkulasi',[NilaiController::class,'calculateNilai'])->name('kalkulasi-summary-nilai');
+        Route::get('/print',[NilaiController::class,'cetakNilai'])->name('cetak-summary-nilai');
+        Route::get('/tambah',[NilaiController::class,'calculateNilai'])->name('tambah-summary-nilai');
+    });
+
     Route::group(['prefix'=>'santri'],function(){
         Route::get('/lihat',[NilaiController::class,'lihat']);
-        Route::get('/tambah',[NilaiController::class,'tambah'])->name('tambah-nilai');
+        Route::get('/tambah',[NilaiController::class,'tambah'])->name('tambah-santri');
     });
 
     Route::group(['prefix'=>'santri'],function(){

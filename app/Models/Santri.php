@@ -30,4 +30,12 @@ class Santri extends Model
     {
         return $this->hasMany(Nilai::class,'santri_id','id');
     }
+    public function nilai_tahfizh()
+    {
+        return $this->hasMany(Nilai::class,'santri_id','id')->where('nilai_type','tahfizh');
+    }
+    public function nilai_tahsin()
+    {
+        return $this->hasMany(Nilai::class,'santri_id','id')->where('nilai_type','tahsin');
+    }
 }

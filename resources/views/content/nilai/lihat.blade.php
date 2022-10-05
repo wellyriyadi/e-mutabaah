@@ -17,7 +17,10 @@
                                 <thead>
                                     <tr>
                                         <th>Tanggal Penilaian</th>
+                                        <th>Jenis Penilaian</th>
+                                        <th>Semester</th>
                                         <th>Surah</th>
+                                        <th>Nama Santri</th>
                                         <th>Makhraj</th>
                                         <th>Mad</th>
                                         <th>Ghunnah</th>
@@ -31,7 +34,10 @@
                                     @foreach ($dataNilai as $item)
                                     <tr>
                                         <td>{{date('d M Y',strtotime($item->created_at))}}</td>
+                                        <td>{{$item->nilai_type}}</td>
+                                        <td>{{$item->data_semester->tahun_ajaran}}</td>
                                         <td>{{$item->data_surat->nama_surat}}</td>
+                                        <td>{{$item->data_santri->nama_santri}}</td>
                                         <td>{{$item->makhraj!=0?'-'.$item->makhraj : $item->makhraj}}</td>
                                         <td>{{$item->mad!=0?'-'.$item->mad : $item->mad}}</td>
                                         <td>{{$item->ghunnah!=0?'-'.$item->ghunnah : $item->ghunnah}}</td>

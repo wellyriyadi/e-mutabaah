@@ -17,11 +17,10 @@ class AuthController extends Controller
       if (auth()->attempt($credentials)) {
          
           $sessionValue = [
-            "userData"=>[
-              "id"=>auth()->user()->id,
+              "id"=>auth()->user()->guru_id!=null?auth()->user()->guru_id:auth()->user()->id,
               "fullName"=>auth()->user()->name,
               "email"=>auth()->user()->email,
-            ]
+              "level"=>auth()->user()->guru_id!=null?'guru':(auth()->user()->ortu_id!=null?'ortu':'admin')
           ];
           request()->session()->put("userData",$sessionValue);
           return redirect('/dashboard');

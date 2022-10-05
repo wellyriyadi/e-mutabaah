@@ -47,7 +47,12 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets')}}/css/custom/custom.css">
     <!-- END: Custom CSS-->
-    
+    <style>
+          .disabled-li {
+              pointer-events:none;
+              background: #D3D3D3;
+          }
+    </style>
   </head>
   <!-- END: Head-->
   <body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu preload-transitions 2-columns   " data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">

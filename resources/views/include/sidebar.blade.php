@@ -17,9 +17,12 @@
         <li class="bold"><a href="JavaScript:void(0)"><i class="material-icons">home</i><span class="menu-title"
                     data-i18n="Templates">Home</span></a>
         </li>
+        @if(session('userData')['level']!='ortu')
         <li class="bold"><a href="/mutabaah/lihat"><i class="material-icons">chrome_reader_mode</i><span
                     class="menu-title" data-i18n="Templates">Mutaba'ah</span></a>
         </li>
+        @endif
+        @if(session('userData')['level']=='admin')
         <li class="bold"><a href="/santri/lihat"><i class="material-icons">people</i><span class="menu-title"
                     data-i18n="Templates">Santri</span></a>
         </li>
@@ -29,6 +32,8 @@
         <li class="bold"><a href="/kelas/lihat"><i class="material-icons">class</i><span class="menu-title"
                     data-i18n="Templates">Kelas</span></a>
         </li>
+        @endif
+        @if(session('userData')['level']!='ortu')
         <li class="bold"><a href="#" class="collapsible-header waves-effect waves-cyan "><i class="material-icons">dvr</i><span class="menu-title"
                     data-i18n="Templates">Nilai</span></a>
             <div class="collapsible-body" style="">
@@ -37,22 +42,25 @@
                             tabindex="0"><i class="material-icons">radio_button_unchecked</i><span
                                 data-i18n="Nilai">Nilai</span></a>
                     </li>
-                    <li><a class="" href="#"
+                    <li><a class="" href="/summary-nilai/lihat"
                             tabindex="0"><i class="material-icons">radio_button_unchecked</i><span
                                 data-i18n="Summary Nilai">Summary Nilai</span></a>
                     </li>
                 </ul>
             </div>
         </li>
+        @endif
         {{-- <li class="bold"><a href="/mapel/lihat"><i class="material-icons">stars</i><span class="menu-title"
                     data-i18n="Templates">Mapel</span></a>
         </li> --}}
+        @if(session('userData')['level']=='admin')
         <li class="bold"><a href="/tahunajaran/lihat"><i class="material-icons">stars</i><span class="menu-title"
                     data-i18n="Templates">Tahun Ajaran</span></a>
         </li>
         <li class="bold"><a href="/informasi/lihat"><i class="material-icons">notifications</i><span
                     class="menu-title" data-i18n="Templates">Informasi</span></a>
         </li>
+        @endif
         <li class="bold"><a href="/"><i class="material-icons">arrow_forward</i><span class="menu-title"
                     data-i18n="Templates">Logout</span></a>
         </li>

@@ -15,7 +15,7 @@ class Kelas extends Model
 
     public function data_Guru()
     {
-        return $this->hasOne(GuruKelas::class,'guru_id','id');
+        return $this->hasMany(GuruKelas::class,'kelas_id','id');
     }
     public function dataTahunAjaran()
     {
