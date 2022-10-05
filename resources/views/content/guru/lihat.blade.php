@@ -124,7 +124,7 @@
             $('input[name="nomor_telepon"]').val(d.nomor_telepon)
             $('input[name="tanggal_bergabung"]').val(d.tanggal_bergabung)
             $('input[name="tanggal_berhenti"]').val(d.tanggal_berhenti)
-            $('input[name="email"]').val(d.data_user.email)
+            $('input[name="email"]').val(d.data_user.email??'')
             $('input[name="password"]').attr('required',false)
             $('#modalGuru').modal('open');
         })
